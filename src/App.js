@@ -25,15 +25,57 @@ class App extends Component {
 
     // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
-      // ACTION ITEM: use "currentWord" as a starting point for your code
-      console.log("currentWord:", currentWord)
 
+
+      // ACTION ITEM: use "currentWord" as a starting point for your code
+      //console.log("currentWord:", currentWord)
+
+      
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+
+      currentWord = () => {
+        let firstLetter = currentWord.split("")
+
+        if(firstLetter[0] === vowelsArray){
+          var joinedLetter = vowelsArray.join('')
+          var concatVowel = joinedLetter + "way"
+          console.log(concatVowel)
+          return translatedWordsArray.push(concatVowel)
+        
+      
+
+// For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
+
+        }else if (firstLetter[0][1] !== vowelsArray || 'q' || 'qu'){
+          for(let i=0; i <firstLetter.length; i++){
+          var consWord = firstLetter.join('')
+          var concatCons = consWord.slice + "ay"
+          return translatedWordsArray.push(concatCons)  
+          }
+        }
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+
+
 
       // Remember: console.log is your friend :)
 
@@ -99,7 +141,7 @@ class App extends Component {
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by Toni and Vanessa~</footer>
       </>
     )
   }
